@@ -1,0 +1,18 @@
+<Dentro do PostgreSQL root>
+create user filipe with encrypted password '1234';
+alter user filipe createdb;
+
+create database uvv with owner = filipe 
+template = template0
+encoding = UTF8
+lc_collate = 'pt_BR.UTF-8'
+lc_ctype = 'pt_BR.UTF-8'
+allow_connections = true;
+
+exit
+
+<Para entrar no banco de dados uvv)
+psql -U filipe uvv
+Senha: 1234
+
+
