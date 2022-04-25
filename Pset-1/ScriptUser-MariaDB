@@ -1,12 +1,12 @@
-<Dentro do MySQL>
+---------------(Dentro do MySQL)-----------------
 create user 'filipe'@'localhost' identified by '1234';
 grant all privileges on *.* to 'filipe'@'localhost';
 flush privileges;
 
-<Para entrar no usuário>
+---------------(Para entrar no usuário)-----------------
 mysql -u filipe -p
 Senha:1234
 
-<Dentro do usuário>
+---------------(Dentro do usuário)-----------------
 create database uvv;
 use uvv;
