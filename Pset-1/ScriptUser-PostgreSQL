@@ -1,4 +1,6 @@
-<Dentro do PostgreSQL root>
+
+---------------(Dentro do PostgreSQL root)-----------------
+
 create user filipe with encrypted password '1234';
 alter user filipe createdb;
 
@@ -11,7 +13,7 @@ allow_connections = true;
 
 exit
 
-<Para entrar no banco de dados uvv)
+---------------(Para entrar no banco de dados uvv)-----------------
 psql -U filipe uvv
 Senha: 1234
 
