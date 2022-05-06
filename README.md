@@ -4,3 +4,6 @@ Este repositório tem a pretencão de servir como um acervo das atividade e proj
 
 ## Pset 1
 Status: [concluido](Pset-1)
+
+## Pset 2
+Status: [Em progresso](Pset-2)
