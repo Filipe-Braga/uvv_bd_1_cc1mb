@@ -1,0 +1,19 @@
+SELECT numero_departamento,
+  AVG (salario) 'média salarial por departamento'
+FROM
+  funcionario
+GROUP BY numero_departamento;
+
+SELECT
+  AVG(salario) 'media salarial masculina'
+FROM 
+  funcionario
+WHERE
+  sexo = 'M';
+  
+SELECT
+  AVG(salario) 'media salarial feminina'
+FROM 
+  funcionario
+WHERE
+  sexo = 'F';
