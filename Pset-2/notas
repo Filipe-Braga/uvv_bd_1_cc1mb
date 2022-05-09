@@ -1,9 +1,12 @@
+**Questão 1
 SELECT numero_departamento,
   AVG (salario) 'média salarial por departamento'
 FROM
   funcionario
 GROUP BY numero_departamento;
 
+
+**Questão 2
 SELECT
   AVG(salario) AS 'media salarial'
 FROM 
