@@ -5,14 +5,14 @@ FROM
 GROUP BY numero_departamento;
 
 SELECT
-  AVG(salario) 'media salarial masculina'
+  AVG(salario) AS 'media salarial'
 FROM 
   funcionario
 WHERE
   sexo = 'M';
-  
+UNION
 SELECT
-  AVG(salario) 'media salarial feminina'
+  AVG(salario)
 FROM 
   funcionario
 WHERE
