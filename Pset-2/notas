@@ -28,6 +28,8 @@ SELECT
 FROM
 	departamento INNER JOIN funcionario on departamneto.numero_departamento=funcionario.numero_departamento;
   
+  
+  
 **Questão 4
 SELECT 
 	concat(primeiro_nome," ",nome_meio,". ",ultimo_nome) as nome_completo, salario, 
