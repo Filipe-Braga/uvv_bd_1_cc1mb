@@ -20,3 +20,12 @@ FROM
   funcionario
 WHERE
   sexo = 'F';
+  
+  
+**Questão 3
+SELECT 
+	departamento.nome_departamento, concat(primeiro_nome," ",nome_meio,". ",ultimo_nome) as nome_completo, funcionario.data_nascimento, year(curdate())-year(funcionario.data_nascimento) as idade, funcionario.salario
+FROM
+	departamento INNER JOIN funcionario on departamneto.numero_departamento=funcionario.numero_departamento;
+  
+**Questão 4
