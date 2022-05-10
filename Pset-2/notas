@@ -44,12 +44,30 @@ FROM
 SELECT*
 FROM (SELECT concat("gerente do departamento de ", departamento.nome_departamento) as nome_departamento, concat(funcionario.primeiro_nome, " ",funcionario.nome_meio, ". ",funcionario.ultimo_nome) as nome_funcionario, funcionario.salario 
 FROM departamento 
+
 INNER JOIN funcionario ON departamento.numero_departamento = funcionario.numero_departamento WHERE cpf_gerente = cpf 
+
 ORDER BY nome_departamento asc) as gerente
+
 UNION
+
 SELECT*
 FROM (SELECT departamento.nome_departamento, concat(funcionario.primeiro_nome, " ", funcionario.nome_meio, ". ",funcionario.ultimo_nome) as nome_funcionario, funcionario.salario 
 FROM departamento 
+
 INNER JOIN funcionario on departamento.numero_departamento = funcionario.numero_departamento 
 WHERE NOT cpf_gerente = cpf 
 ORDER BY salario desc) funcionario;
+
+**Questão 6
+SELECT distinct
+    concat(dependente.nome_dependente," ",funcionario.ultimo_nome) as nome_dependente, concat( year(curdate())-year(dependente.data_nascimento), " anos") as idade, concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome) as nome_funcionario, departamento.nome_departamento,
+case dependente.sexo
+      WHEN 'M' then 'Masculino'
+      WHEN 'F' then 'Feminino'
+END as sexo_dependente
+
+FROM (dependente, funcionario, departamento)
+
+INNER JOIN dependente as d ON (dependente.cpf_funcionario = funcionario.cpf)
+INNER JOIN funcionario as f ON (departamento.numero_departamento = funcionario.numero_departamento) WHERE dependente.cpf_funcionario = funcionario.cpf ;
