@@ -39,3 +39,17 @@ case salario
 	END AS salario_reajustado 
 FROM
 	funcionario;
+	
+**Questão 5
+SELECT*
+FROM (SELECT concat("gererete do departamento de ", departamento.nome_departamento) as nome_departamento, concat(funcionario.primeiro_nome, " ",funcionario.nome_meio, ". ",funcionario.ultimo_nome) as nome_funcionario, funcionario.salario 
+FROM departamento 
+INNER JOIN funcionario ON departamento.numero_departamento = funcionario.numero_departamento WHERE cpf_gerente = cpf 
+ORDER BY nome_departamento asc) as gerente
+UNION
+SELECT*
+FROM (SELECT departamento.nome_departamento, concat(funcionario.primeiro_nome, " ", funcionario.nome_meio, ". ",funcionario.ultimo_nome) as nome_funcionario, funcionario.salario 
+FROM departamento 
+INNER JOIN funcionario on departamento.numero_departamento = funcionario.numero_departamento 
+WHERE NOT cpf_gerente = cpf 
+ORDER BY salario desc) funcionario;
