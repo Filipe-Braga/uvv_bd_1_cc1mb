@@ -107,5 +107,10 @@ INNER JOIN trabalha_em AS t ON (projeto.numero_projeto = trabalha_em.numero_proj
 GROUP BY  projeto.nome_projeto, departamento.nome_departamento asc; 
 
 **Questão 10
-
+SELECT departamento.nome_departamento,
+  AVG (funcionario.salario) 'média salarial por departamento'
+FROM
+  (funcionario, departamento)
+INNER JOIN funcionario AS f ON (departamento.numero_departamento = funcionario.numero_departamento)
+GROUP BY departamento.nome_departamento;
 
