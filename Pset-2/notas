@@ -127,3 +127,15 @@ INNER JOIN trabalha_em AS t ON (projeto.numero_projeto = trabalha_em.numero_proj
 GROUP BY  concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome), projeto.nome_projeto; 
 
 **Questão 12
+SELECT distinct
+concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome) AS nome_funcionario, departamento.nome_departamento, projeto.nome_projeto
+
+FROM (funcionario, departamento, projeto, trabalha_em)
+
+INNER JOIN funcionario AS f ON (trabalha_em.cpf_funcionario=funcionario.cpf)
+INNER JOIN departamento AS d ON (funcionario.numero_departamento = departamento.numero_departamento)
+INNER JOIN projeto AS p ON (trabalha_em.numero_projeto = projeto.numero_projeto)
+WHERE trabalha_em.horas is NULL;
+
+**Questão 13
+
