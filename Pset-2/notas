@@ -139,4 +139,23 @@ INNER JOIN projeto AS p ON (trabalha_em.numero_projeto = projeto.numero_projeto)
 WHERE trabalha_em.horas is NULL;
 
 **Questão 13
- tentei fazer dependentes e funcionarios partes da mesma coluna mas não consegui
+
+SELECT
+concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome," (funcionario)") AS nome, 
+funcionario.sexo, 
+concat( year(curdate())-year(funcionario.data_nascimento), " anos") as idade
+
+
+FROM (funcionario, dependente, departamento)
+
+UNION
+
+SELECT 
+concat(dependente.nome_dependente," ",funcionario.ultimo_nome, " (dependente)") as nome, 
+dependente.sexo, concat( year(curdate())-year(dependente.data_nascimento), " anos") as idade
+
+FROM (funcionario, dependente, departamento)
+
+WHERE dependente.cpf_funcionario = funcionario.cpf AND departamento.numero_departamento = funcionario.numero_departamento
+ORDER BY idade desc;
+ 
