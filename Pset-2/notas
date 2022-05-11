@@ -138,4 +138,4 @@ INNER JOIN projeto AS p ON (trabalha_em.numero_projeto = projeto.numero_projeto)
 WHERE trabalha_em.horas is NULL;
 
 **Questão 13
-
+ tentei fazer dependentes e funcionarios partes da mesma coluna mas não consegui
