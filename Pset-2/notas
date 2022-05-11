@@ -71,3 +71,14 @@ FROM (dependente, funcionario, departamento)
 
 INNER JOIN dependente as d ON (dependente.cpf_funcionario = funcionario.cpf)
 INNER JOIN funcionario as f ON (departamento.numero_departamento = funcionario.numero_departamento) WHERE dependente.cpf_funcionario = funcionario.cpf ;
+
+
+**Questão 7
+SELECT distinct
+	concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome) as nome_funcionario, departamento.nome_departamento, funcionario.salario 
+FROM (funcionario, departamento)
+LEFT JOIN dependente ON dependente.cpf_funcionario = funcionario.cpf 
+INNER JOIN funcionario as f ON (departamento.numero_departamento = funcionario.numero_departamento) 
+WHERE dependente.cpf_funcionario is NULL;
+
+**Questão 8
