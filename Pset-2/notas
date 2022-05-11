@@ -114,3 +114,16 @@ FROM
 INNER JOIN funcionario AS f ON (departamento.numero_departamento = funcionario.numero_departamento)
 GROUP BY departamento.nome_departamento;
 
+**Questão 11
+SELECT distinct
+	concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome) AS nome_funcionario, projeto.nome_projeto, trabalha_em.horas, trabalha_em.horas*50 AS valo_total
+
+FROM 
+	(departamento, funcionario, projeto, trabalha_em)
+
+INNER JOIN departamento AS d ON (projeto.numero_departamento =  departamento.numero_departamento)
+INNER JOIN funcionario AS f ON (funcionario.cpf = trabalha_em.cpf_funcionario)
+INNER JOIN trabalha_em AS t ON (projeto.numero_projeto = trabalha_em.numero_projeto)
+GROUP BY  concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome), projeto.nome_projeto; 
+
+**Questão 12
