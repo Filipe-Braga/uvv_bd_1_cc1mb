@@ -158,4 +158,14 @@ FROM (funcionario, dependente, departamento)
 
 WHERE dependente.cpf_funcionario = funcionario.cpf AND departamento.numero_departamento = funcionario.numero_departamento
 ORDER BY idade desc;
+
+**Questão 14
+SELECT departamento.nome_departamento, count(funcionario.cpf) AS numero_funcionarios
+
+FROM (departamento, funcionario)
+
+INNER JOIN funcionario AS f ON (funcionario.numero_departamento = departamento.numero_departamento)
+GROUP BY departamento.nome_departamento;
+
+ **Questão 15
  
