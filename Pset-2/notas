@@ -7,14 +7,15 @@ GROUP BY numero_departamento;
 
 
 **Questão 2
-SELECT
+
+SELECT sexo,
   AVG(salario) AS 'media salarial'
 FROM 
   funcionario
 WHERE
-  sexo = 'M';
+  sexo = 'M'
 UNION
-SELECT
+SELECT sexo,
   AVG(salario)
 FROM 
   funcionario
