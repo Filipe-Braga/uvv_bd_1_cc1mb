@@ -169,3 +169,10 @@ GROUP BY departamento.nome_departamento;
 
  **Questão 15
  
+ SELECT 
+ concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome) AS nome, departamento.nome_departamento, projeto.nome_projeto
+
+FROM (funcionario, projeto, departamento)
+
+WHERE funcionario.numero_departamento = departamento.numero_departamento AND projeto.numero_departamento = departamento.numero_departamento 
+GROUP BY concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome),departamento.nome_departamento, projeto.nome_projeto;
