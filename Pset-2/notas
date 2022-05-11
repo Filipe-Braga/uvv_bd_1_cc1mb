@@ -94,3 +94,18 @@ INNER JOIN trabalha_em AS t ON (funcionario.cpf=trabalha_em.cpf_funcionario)
 INNER JOIN projeto AS pr ON trabalha_em.numero_projeto = projeto.numero_projeto WHERE funcionario.numero_departamento = projeto.numero_departamento
 GROUP BY departamento.nome_departamento, projeto.nome_projeto, concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome), trabalha_em.horas
 ORDER BY nome_departamento asc;
+
+**QUestão 9
+SELECT distinct
+	departamento.nome_departamento, projeto.nome_projeto, sum(trabalha_em.horas) AS horas_trabalhadas
+
+FROM 
+	(departamento, projeto, trabalha_em)
+
+INNER JOIN departamento AS d ON (projeto.numero_departamento = departamento.numero_departamento)
+INNER JOIN trabalha_em AS t ON (projeto.numero_projeto = trabalha_em.numero_projeto)
+GROUP BY  projeto.nome_projeto, departamento.nome_departamento asc; 
+
+**Questão 10
+
+
