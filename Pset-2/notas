@@ -82,3 +82,15 @@ INNER JOIN funcionario as f ON (departamento.numero_departamento = funcionario.n
 WHERE dependente.cpf_funcionario is NULL;
 
 **Questão 8
+SELECT distinct
+departamento.nome_departamento, projeto.nome_projeto, concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome) AS nome_funcionario, trabalha_em.horas
+
+FROM
+(departamento, funcionario, projeto, trabalha_em)
+
+INNER JOIN funcionario AS f ON (departamento.numero_departamento = funcionario.numero_departamento)
+INNER JOIN projeto AS p ON (departamento.numero_departamento = projeto.numero_departamento)
+INNER JOIN trabalha_em AS t ON (funcionario.cpf=trabalha_em.cpf_funcionario)
+INNER JOIN projeto AS pr ON trabalha_em.numero_projeto = projeto.numero_projeto WHERE funcionario.numero_departamento = projeto.numero_departamento
+GROUP BY departamento.nome_departamento, projeto.nome_projeto, concat(funcionario.primeiro_nome," ",funcionario.nome_meio,". ",funcionario.ultimo_nome), trabalha_em.horas
+ORDER BY nome_departamento asc;
