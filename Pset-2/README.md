@@ -1,3 +1,7 @@
+## NOTA<br>
+por alguma razão, as reduçoes feitas com o "AS" não funcionaram no meu terminal.
+
+
 ## Questão 1
 SELECT numero_departamento,AVG (salario) 'média salarial por departamento'
 
